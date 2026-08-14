@@ -29,7 +29,7 @@ sudo ninja -C build install
 
 Start `mangobar` in your mangowm configuration:
 
-```conf
+```ini
 exec-once=mangobar
 ```
 
