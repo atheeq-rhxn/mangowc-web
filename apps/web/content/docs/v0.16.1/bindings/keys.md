@@ -22,6 +22,7 @@ bind[flags]=MODIFIERS,KEY,COMMAND,PARAMETERS
 - `s`: Uses keysym instead of keycode to bind.
 - `r`: Triggers on key release instead of press.
 - `p`: Pass key event to client.
+- `c`: allow keybind conflict(need set in all conflict key).
 
 **Examples:**
 
@@ -41,6 +42,10 @@ bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl set +5%
 
 # Bind a modifier key itself as the trigger key
 bind=alt,shift_l,switch_keyboard_layout
+
+# Allow keybind conflict
+bindc=SUPER,a,resizewin,+10,0
+bindc=SUPER,a,centerwin
 ```
 
 ## Key Modes (Submaps)
@@ -50,6 +55,8 @@ You can divide key bindings into named modes. Rules:
 1. Set `keymode=<name>` before a group of `bind` lines — those binds only apply in that mode.
 2. If no `keymode` is set before a bind, it belongs to the `default` mode.
 3. The special `common` keymode applies its binds **across all modes**.
+
+> **Info:** Key modes also apply to the other input bindings — `mousebind`, `axisbind`, `gesturebind` and `switchbind` — which share the exact same `keymode` rules as `bind`.
 
 Use `setkeymode` to switch modes, and `mmsg get keymode` to query the current mode.
 
@@ -108,7 +115,7 @@ bindr=Super,Super_L,spawn,rofi -show run
 | :--- | :--- | :--- |
 | `focusid` | - | Focus window (can target any window via IPC: `mmsg dispatch focusid client,<id>`) |
 | `focusdir` | `left/right/up/down` | Focus window in direction. |
-| `focus_window_or_workspace` | `left/right/up/down` | Focus window in direction or switch to next/previous workspace. |
+| `focus_window_or_workspace` | `left/right/up/down` | Focus window in direction; otherwise jump to the nearest adjacent tag that has clients, falling back to the next/previous tag if none. |
 | `focusstack` | `next/prev` | Cycle focus within the stack. |
 | `focuslast` | - | Focus the previously active window. |
 | `exchange_client` | `left/right/up/down` | Swap window with neighbor in direction. |

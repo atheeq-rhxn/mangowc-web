@@ -7,6 +7,8 @@ description: Configure mouse buttons, scrolling, gestures, and lid switches.
 
 Assign actions to mouse button presses with optional modifier keys.
 
+> **Info:** All of the bindings in this page (`mousebind`, `axisbind`, `gesturebind`, `switchbind`) support key modes via `keymode=<name>`, using the exact same rules as `bind`. See [Keys: Key Modes](/docs/bindings/keys).
+
 ### Syntax
 
 ```ini
@@ -68,7 +70,7 @@ gesturebind=MODIFIERS,DIRECTION,FINGERS,COMMAND,PARAMETERS
 - **Direction**: `up`, `down`, `left`, `right`
 - **Fingers**: `3` or `4`
 
-> **Info:** Gestures require proper touchpad configuration. See [Input Devices](/docs/configuration/input) for touchpad settings like `tap_to_click` and `disable_while_typing`.
+> **Info:** Gestures require proper touchpad configuration. See [Input Devices](/docs/configuration/input) for touchpad settings like `tap_to_click` and `trackpad_disable_while_typing`.
 
 ### Examples
 
