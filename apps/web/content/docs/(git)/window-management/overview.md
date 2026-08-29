@@ -22,8 +22,8 @@ description: Configure the overview mode for window navigation.
 - `jump_labels` — Defines the ordered characters used for jump hints when in overview jump mode. Each visible window is assigned a label in this order, and pressing the corresponding key jumps to that window. The number of labels limits how many windows can be assigned hints at once.
 
 [`overcicle`](/docs/bindings/keys#focus--movement) opens overview; while
-overview is open, `next`/`prev` cycle focus through the current monitor's
-windows. Release a modifier key or run `toggleoverview` to close it.
+overview is open, each trigger cycles focus to the next window on the current
+monitor. Release a modifier key or run `toggleoverview` to close it.
 
 ### Mouse Interaction in Overview
 
